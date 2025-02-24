@@ -314,3 +314,73 @@ int main()
     cout << "x=" << x << endl;
     return 0;
 }
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    for (int i = 1; <= 4; ++i, cout << endl;) // Внейшний цикл
+    for (int j = 1; j <= 5; ++j) // Внутренний цикл 
+    cout << "2\t"; // тело внутреннего цикла
+    return 0;
+}
+
+for (i = 1; i < ik; i++)    
+    {...
+        for (j = 10; jk; j--)
+        {...
+            for(k = 1; < kk; j += 2){...}
+        ...}
+    ...}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cout << "n =";
+    cin >> n;
+    for (int i = 1; i <=n; i++) // для j от 1 до n с шагом 1
+    cout << i << "\t"; // выводить на экран значение j
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n, i = 1;
+    cout << "n =";
+    cin >> n;
+    do // выводим на экран j, а затем увеличиваем
+    cout << i++<< "\t"; // ее значение на единицу
+    while (i<= n); // до тех пор пока j меньше или равна n
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n, i = 1;
+    cout << "n =";
+    cin >> n;
+    do // выводим на экран j, а затем увеличиваем
+    cout << i++<< "\t"; // ее значение на единицу
+    while (i<= n); // до тех пор пока j меньше или равна n
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n, i = 1;
+    cout << "n =";
+    cin >> n;
+    while (I <= n) // пока j меньше или равно n
+    {
+    cout << i<< "\t"; // выводим на экран значение j
+    ++i; // увеличиваем j на единицу
+    return 0;
+}
