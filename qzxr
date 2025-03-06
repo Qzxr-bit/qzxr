@@ -384,3 +384,493 @@ int main()
     ++i; // увеличиваем j на единицу
     return 0;
 }
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    float x;
+    metka: cout <<"x = "; // метка
+    cin >> x;
+    if (x)
+    cout << "y = " << 1/x << endl;
+    else
+    {
+        cout << "Функция не определена\n";
+        goto metka; // передача управления метке
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    for (int i = 1; i < 100; ++i) // перебираем все числа от 1 до 99
+    {
+        if (1 % 2) //  если число нечетное, то переходим к следующей итерации
+        continue;
+        cout << i << "\t"; // выводим число на экран
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    // инициализация указателя на целочисленное значение
+    int *a = new int(50);
+    // переменной b присваивается значение, хранящееся по адресу указателя a
+    int b = *a;
+    cout << "adress \t *a\t b\n";
+    /* выводим: адрес, хранящийся b указетеле a; значение, хранящееся по адресу указателя a; значение переменной b */
+    cout << a << "\t" << *a << "\t" << b << endl;
+    *a = 100; // изменяем значение, хранящееся по адресу указателя a 
+    
+    cout << a << "\t" << b << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int b = 50;
+    int *a = 50; // b указатель a записали адрес переменной b 
+    cout << "adress \t *a\t b\n";
+    cout << a << "\t" << *a << "\t" << b << endl;
+    b += 10; // 1
+    cout << a << "\t" << *a << "\t" << b << endl;
+    *a = 100; // 2
+    cout << a << "\t" << *a << "\t" << b << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int *a = new int(50);
+    cout << "adress \t *a\n";
+    cout << a "\t" << *a << endl;
+    // 1 увеличивается на 1 значение, хранящиееся по адресу указателя a 
+    (*a)++;
+    cout << a << "\t" << *a << endl;
+    // 2 значение указателя изменяется на величину sizeof (int)
+    *(a++);
+    cout << a << "\t" << endl;
+    // 3 с учетом приоритекта операций * и ++ аналог строки 2
+    *a++;
+    cout << a << "\t" << *a << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+   // массив из 10 элементов с плавающей точкой, не инициализирован
+   float v[10];
+   // массив из 3 элементов целого типа, инициализирован списком чисел 1, 2, 3
+   int a[] = {1,2,3};
+   // массив ИЗ 5 элементов целого типа, инициализирован списком чисел 1,2,3,0,0
+   int b[5] = {1,2,3};
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+   int b[10]; // обьявление массива
+   for (int i = 0; i < 10; i++) // ввод элементов массива
+{
+    cout << "b[" << "] = ";
+    cin >> b[i];
+}
+...
+for (int i = 0; i < 10; i++) // вывод элементов массива на экран
+cout << "b[" << i << "] = " << b[i] << "\n";
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int b[10]; // обьявление массива b
+    // определяем указатель на тип int и устанавливаем его на нулевой элемент массива b 
+    int *p = &b[0];
+    for (int i = 0; i < 10; i++) // ввод элементов массива
+}
+
+{
+    cout << "b["<< i << "] = ";
+    // введенное значение помещаем по адресу указателя p м сдвигаем указатель на следующий элемент массива
+    cin >> *p++;\
+}
+
+...
+// повторно устанавливаем указатель на нулевой элемент массива b 
+
+p = &b[0];
+for (int i = 0; i < 10; i++) // вывод элементов массива
+// выводимс на экран значение, хранящиееся по адресу указателя p, и сдвигаем указатель на следующий элемент массив 
+cout << "b[" << i << "] =" << *p++ << endl;
+rerurn 0;
+
+#include <iostream>
+using namespace std;
+
+
+    // обьявили динамический массив для хранения 10 целых чисел
+    int *b = new int [10];
+    // ввод элементов массива
+    
+for (int i = 0; i < 10; i++)
+{
+    cout << "b[" << i << "] = ";
+    // введенное значение записываем b i-й элемент массива b
+    cin >> *(b + i);
+}
+...
+for (int i = 0; i < 10; i++)
+// выводим  на экран значение i-го элемента массива b 
+cout << "b[" << i << "] = " << *(b+i) << endl;
+
+#include <iostream>
+using namespace std;
+/* в функцию в качестве параметров передаются статический массив mas и его размерность n */
+void print (int mas[], int n)
+{
+    for (int i = 0; i < n; i++) cout << mas[i] << "\t";
+    cout << endl;
+}
+
+int main()
+{
+    int a[10] = {0,1,2,3,4,5,6,7,8,9};
+    print(a, 10);
+    cout << endl;
+    print (a, 7);
+    print(a,13);
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+/* в функцию в качестве параметров передаются динамический массив mas и его размерность n */
+void print (int *mas, int n)
+{
+    for (int i = 0; i < n; i++)
+    cout << mas[i] << "\t";
+}
+int main()
+{
+    int n = 10;
+    int *a = new int [n];
+    for (int i = 0; i < n; i++)
+    a[i] = i * i;
+    print (a,10);
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+int sum (const int *mas, const int n)
+{...}
+
+#include <iostream>
+using namespace std;
+
+int * creat(int n)
+{
+    int *mas = new int [n];
+    for (int i = 0; i<n; i++)
+    mas[i] = i*i;
+    return mas;
+}
+
+void print (int *mas, int n)
+{
+    for (int i = 0; i < n; i++)
+    cout << mas[i] << "\t";
+}
+
+int main()
+{
+    int n = 5;
+    int *a = creat(n);
+    print (a,n);
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+int *f()
+{
+    int a = 5;
+    return &a; // нельзя!!!
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a[20]; // обьявляем статический массив, задав максимальную размерность
+    int n;
+    cout << "n = ";
+    cin >> n; // ввели количества элементов массива
+    for (int i = 0; i < n; ++i) // ввод и обработка данных
+    {
+        cout << "a[" << i << "] = ";
+        if (a[i] < 0) // если i-й элемент массива отрицательный,
+        a[i] = 0; // заменяем его нулем
+    }
+    for (int i = 0; i < n; ++i) // вывод массива на экран
+    cout << a[i] << "\t";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    flaot a[100];
+    int n;
+    cout << "n = ";
+    cin >> n;
+    float s = 0;
+    for (int i = 0; i < n; ++i)
+{
+    cout << "a[" << i << "] = ";
+    cin >> a[i];
+    s += a[i]; // добавление значения элемента массива к сумме
+}
+cout << "s = " << s << endl;
+return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a[50];
+    int n, k = 0'
+    cout >> "n = ";
+    cin >> n;
+    float s = 0;
+    for (int i = 0; i < n; ++i)
+{
+    cout << "a[" << i << "] = ";
+    cin >> a[i];
+    if (!(a[i]%2)) // если остаток при делении элемента на 2 равен 0
+    {
+        s+= a[i]; // то элемент четный - добавить его к сумме
+        ++k; // и увеличить количество четных элементов на 1
+    }
+}
+// если k не нулевое, то четные числа в последовательности есть
+// ии можно вычислить их среднее арифметическое значение
+if (k)
+cout << "sr = " << s/k << endl;
+
+    else cout << "четных чисел в последовательности нет" << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+   int a[30];
+   int n; cout << "n = ";
+   cin >> n;
+   for (int i = 0; i < n; ++i)
+   {
+       cout << "a[" << i <<  "] = ";
+       cin >> a[i];
+   }
+   // в качестве наименьшего значения полагаем нулевой элемент массива
+   int min = a[0];
+   int nmin = 0; // соответственно его порядковый номер равен 0 
+   // перебираем все элементы массива с первого по последний
+   for (int i = 1; i < n; ++i)
+   // еслм очередной элемент окажется меньше значения min, то 
+   if (a[i] < min)
+   {
+       //  в качестве нового наименьшего значения запоминаем    
+       // значение текущего элемента массива и,
+       // ссоответственно, запоминаем его номер
+       min = a[i];
+       nmin = i;
+   }
+  cout << "min = " << min << "\t nmin = " << nmin << endl;
+  return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+   float a[20];
+   int n;
+   cout << "n = ";
+   cin >> n;
+   for (int i = 0; i < n; ++i)
+   {
+       cout << "a[" << i << "] = ";
+       cin >> a[i];
+   }
+   // первоначально полагаем элемент с номером в минимальным
+   // и максимальная  и запоминаем егор номер
+    float min = a[0], max = a[0];
+    int nmin = 0, nmax = 0;
+    // поиск наибольшего и наименьшего и значения в массиве и их номеров
+    for (int i = 1; 1 < n; ++i)
+    {
+        if (a[i] < min)
+        {
+            min = a[i];
+            nmin = i;
+        }
+        if (a[i] < min )
+        {
+            max = a[i];
+            nmax = i;
+        }
+    }
+// в позицию наименьшего элемента записываем значение наибольшего
+a[nmax] = min;
+// в позицию наибольшего элемента записываем значение наименьшего
+a[nmin] = max;
+for (int i = 0; i < n; ++i) // выдадим измененный массива на экран
+cout << a[i] << "\t";
+return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+   float a [20];
+   int n, k = 0;
+   cout << "n = ";
+   cin >> n;
+   for (int i = 0; i < n; ++i)
+   {
+       cout << "a[" << i << "] = ";
+       cin >> a[i];
+   }
+   for (int i = 0; i < n - 1; ++i)
+   if (a[i] == a[i + 1]) // если соседние элементы равны
+   ++k; // то количество искомых пар увеличиваем на 1
+   cout << "k = " << k << endl;
+   return 0;
+}
+
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+int main()
+{
+    for(int j = 1; j <6; j++)
+    {
+        for(int k = 0; k < j; k++)
+        {
+            cout << 1*j <<" ";
+        }
+        cout << endl;
+    } 
+}
+
+#include "iostream"
+using namespace std;
+ 
+int main()
+{
+    setlocale (0,"");
+    int bal;
+    cout<<"Введите кол-во баллов: ";
+    cin>>bal;
+    if (bal<0)
+        cout<<"Полученный бал "<<bal<<" меньше нуля"<<endl;
+    else if ((bal>=0) && (bal<=50))
+        cout<<"Полученый бал "<<bal<<" оценивается на неудовлетворительно"<<endl;
+    else if ((bal>50) && (bal<=69))
+        cout<<"Полученый бал "<<bal<<" оценивается на удовлетворительно"<<endl;
+    else if ((bal>69) && (bal<=89))
+        cout<<"Полученый бал "<<bal<<" оценивается на хорошо"<<endl;
+    else if ((bal>89) && (bal<=100))
+        cout<<"Полученый бал "<<bal<<" оценивается на отлично"<<endl;
+    else if (bal>100)
+        cout<<"Полученный бал "<<bal<<" превышает максимальное значение 100";
+   
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double pricePerItem;
+    
+    // Ввод цены за одну штуку
+    cout << "Введите цену за одну штуку: ";
+    cin >> pricePerItem;
+    
+    // Вывод таблицы стоимости
+    for (int quantity = 10; quantity <= 100; quantity += 10) {
+        double totalPrice = pricePerItem * quantity;
+        cout << quantity << " шт. - " << totalPrice << " руб." << endl;
+    }
+    
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double pricePerItem;
+    
+    // Ввод цены за одну штуку
+    cout << "Введите цену за одну штуку: ";
+    cin >> pricePerItem;
+    
+    int quantity = 10;
+    
+    // Вывод таблицы стоимости с помощью do-while
+    do {
+        double totalPrice = pricePerItem * quantity;
+        cout << quantity << " шт. - " << totalPrice << " руб." << endl;
+        quantity += 10;
+    } while (quantity <= 100);
+    
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double pricePerItem;
+    
+    // Ввод цены за одну штуку
+    cout << "Введите цену за одну штуку: ";
+    cin >> pricePerItem;
+    
+    int quantity = 10;
+    
+    // Вывод таблицы стоимости с помощью while
+    while (quantity <= 100) {
+        double totalPrice = pricePerItem * quantity;
+        cout << quantity << " шт. - " << totalPrice << " руб." << endl;
+        quantity += 10;
+    }
+    
+    return 0;
+}
+
+
