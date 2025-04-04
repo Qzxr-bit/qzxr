@@ -125,6 +125,7 @@ int main()
     return 0;
 }
 
+// функция находит наибольшее значение из двух вещественных чисел
 #include <iostream>
 using namespace std;
 
