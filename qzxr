@@ -181,6 +181,7 @@ int main()
     return 0;
 }
 
+// преобразование типов
 #include <iostream>
 using namespace std;
 int main()
